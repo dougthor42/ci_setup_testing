@@ -1,14 +1,14 @@
-numpydoclint
+npdcheck
 ============
 A style checker for docstrings that are supposed to follow the numpy docstring
-conventions (https://github.com/numpy/numpy/blob/master/doc/HOWTO_DOCUMENT.rst.txt)
+conventions (https://github.com/numpy/numpy/blob/master/doc/HOWTO_DOCUMENT.rst.txt).
 
 Goal
 ----
-The goal of `numpydoclint` is to checks each docstring within a module for
+The goal of `npdcheck` is to checks each docstring within a module for
 conformance to numpydoc standards.
 
-`numpydoclint` checks that docstrings have all of the required sections:
+`npdcheck` checks that docstrings have all of the required sections:
 
 - 1.  Short Summary
 - 4.  Parameters
@@ -25,7 +25,7 @@ and checks for optional sections:
 - 11. References
 - 12. Examples
 
-`numpydoclint` should also check for the following:
+`npdcheck` should also check for the following:
 
 - Line limit of 75 characters including whitespace (See last paragraph of https://github.com/numpy/numpy/blob/master/doc/HOWTO_DOCUMENT.rst.txt#docstring-standard)
 
@@ -36,14 +36,14 @@ Installation
 
 To be added to PyPI later, so you'll be able to run
 
-``pip install numpydoclint``
+``pip install npdcheck``
 
 Usage
 -----
 
 Simply call numpydoclint with the file in question as the first arguement:
 
-``>>> python numpydoclint "C:\myfile.py"``
+``>>> python npdcheck "C:\myfile.py"``
 
 Changelog:
 ----------
