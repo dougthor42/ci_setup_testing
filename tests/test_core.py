@@ -1,14 +1,19 @@
 from __future__ import print_function, division
 from __future__ import absolute_import
+import pytest
 import unittest
 
 
-class Tests(unittest.TestCase):
-    """ Example Tests """
+#def test_stuff():
+#    assert 0 == 0
+#    assert 1 == 1
 
-    def test_stuff(self):
-        self.assertEqual(0, 0)
-        self.assertTrue(True)
+
+class Examples(unittest.TestCase):
+    def test_things(self):
+        self.assertEqual(5, 5)
+
 
 if __name__ == "__main__":
-    unittest.main(verbosity=1)
+#    test_stuff()
+    unittest.main()
