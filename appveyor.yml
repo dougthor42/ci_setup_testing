@@ -1,6 +1,18 @@
 # This file taken directly from DRMaclver's hypothesis package.
 # https://github.com/DRMacIver/hypothesis
 # I will edit accordingly once I get my project going
+#
+# Also taken from
+# https://github.com/ogrisel/python-appveyor-demo/blob/master/appveyor.yml
+
+#   - Minimal appveyor.yml file is an empty file. All sections are optional.
+#   - Indent each level of configuration with 2 spaces. Do not use tabs!
+#   - All section names are case-sensitive.
+#   - Section names should be unique on each level.
+
+### ----------------------
+### General Configuration
+### ----------------------
 
 environment:
   global:
@@ -53,10 +65,13 @@ install:
   # Check that we have the expected version and architecture for Python
   - "python --version"
   - "python -c \"import struct; print(struct.calcsize('P') * 8)\""
-  - "%CMD_IN_ENV% pip install setuptools pip"
-  - "%CMD_IN_ENV% pip install ."
-  - "%CMD_IN_ENV% pip install ./hypothesis-extra/hypothesis-datetime/"
-  - "%CMD_IN_ENV% pip install ./hypothesis-extra/hypothesis-pytest/"
+
+  # install dependencies
+  - "%CMD_IN_ENV% pip install -r dev-requirements.txt"
+#  - "%CMD_IN_ENV% pip install setuptools pip"
+#  - "%CMD_IN_ENV% pip install ."
+#  - "%CMD_IN_ENV% pip install ./hypothesis-extra/hypothesis-datetime/"
+#  - "%CMD_IN_ENV% pip install ./hypothesis-extra/hypothesis-pytest/"
 
 build: false  # Not a C# project, build stuff at the test step instead.
 
@@ -65,3 +80,13 @@ test_script:
   - "%CMD_IN_ENV% python -m pytest tests"
   - "%CMD_IN_ENV% python -m pytest hypothesis-extra/hypothesis-datetime/tests"
   - "%CMD_IN_ENV% python -m pytest hypothesis-extra/hypothesis-pytest/tests"
+
+after_test:
+  # if tests OK, create whl package
+  - "%CMD_IN_ENV% python setup.py bdist_wheel bdist_wininst"
+  - ps: "ls dist"
+
+artifacts:
+  # Archive the generated wheel package in the ci.appveyor.com build report.
+  - path: dist\*
+
