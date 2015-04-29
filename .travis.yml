@@ -18,8 +18,8 @@ script:
 
 # Calculate coverage
 after_success:
-  - coveralls --config_file .coverage.rc
-  #- coveralls
+  #- coveralls --config_file .coverage.rc
+  - coveralls
 
 #addons:
 #  artifacts: true
