@@ -1,11 +1,7 @@
 from __future__ import print_function, division
 from __future__ import absolute_import
 import unittest
-
-
-#def test_stuff():
-#    assert 0 == 0
-#    assert 1 == 1
+#import ci_setup_check
 
 
 class Examples(unittest.TestCase):

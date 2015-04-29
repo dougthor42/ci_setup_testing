@@ -7,10 +7,12 @@ notifications:
   email: false
 
 install:
+  - pip install --upgrade pip
   - pip install -r dev-requirements.txt
   - pip install coveralls
 
 script:
+  - coverage run --source=ci_setup_check setup.py test
   - nosetests --with-cov --cov ci_setup_check --cov-config .coveragerc --logging-level=INFO
 
 # Calculate coverage
