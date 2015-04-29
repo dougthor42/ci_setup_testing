@@ -1,51 +1,24 @@
-npdcheck
+Build Status:
+
++-----------+----------+-----------+
+| Travis-CI | AppVeyor | Coveralls |
++===========+==========+===========+
+||travis-ci|||appveyor|||coveralls||
++-----------+----------+-----------+
+
+
+ci_setup_testing
 ============
-A style checker for docstrings that are supposed to follow the numpy docstring
-conventions (https://github.com/numpy/numpy/blob/master/doc/HOWTO_DOCUMENT.rst.txt).
+Just me playing around with various Continuous Integration (CI) services...
 
-Goal
-----
-The goal of `npdcheck` is to checks each docstring within a module for
-conformance to numpydoc standards.
+.. |travis-ci| image:: https://travis-ci.org/dougthor42/ci_setup_testing.svg?branch=master
+  :target: https://travis-ci.org/dougthor42/ci_setup_testing
+  :alt: Travis-CI (Linux, Max)
 
-`npdcheck` checks that docstrings have all of the required sections:
+.. |appveyor| image:: https://ci.appveyor.com/api/projects/status/ysg13pl7id6ql8re?svg=true
+  :target: https://ci.appveyor.com/project/dougthor42/ci-setup-testing
+  :alt: AppVeyor (Windows)
 
-- 1.  Short Summary
-- 4.  Parameters
-- 5.  Returns  or  6. Yields
-
-and checks for optional sections:
-
-- 2.  Depreciation Warning
-- 3.  Extended Summary
-- 7.  Other Parameters
-- 8.  Raises
-- 9.  See Also
-- 10. Notes
-- 11. References
-- 12. Examples
-
-`npdcheck` should also check for the following:
-
-- Line limit of 75 characters including whitespace (See last paragraph of https://github.com/numpy/numpy/blob/master/doc/HOWTO_DOCUMENT.rst.txt#docstring-standard)
-
-This module will also support class documentation and module documentation.
-
-Installation
-------------
-
-To be added to PyPI later, so you'll be able to run
-
-``pip install npdcheck``
-
-Usage
------
-
-Simply call numpydoclint with the file in question as the first arguement:
-
-``>>> python npdcheck "C:\myfile.py"``
-
-Changelog:
-----------
-
-See docs/changelog.rst
+.. |coveralls| image:: https://coveralls.io/repos/dougthor42/ci_setup_testing/badge.svg?branch=master
+  :target: https://coveralls.io/r/dougthor42/ci_setup_testing?branch=master
+  :alt: Coveralls (code coverage)
