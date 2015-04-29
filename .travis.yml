@@ -12,7 +12,7 @@ install:
   - pip install coveralls
 
 script:
-  - coverage run --source=ci_setup_check core.py test
+  - coverage run -m ci_setup_check core.py test_core.py
   #- nosetests --with-cov --cov ci_setup_check --cov-config .coveragerc --logging-level=INFO
   - nosetests --with-cov --cov ci_setup_check --logging-level=INFO
 
