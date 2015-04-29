@@ -5,5 +5,5 @@ setup(
     version = '1.0',
     description = """This is a demo package used for figuring out travics-ci
  and AppVeyor""",
-    packages=['ci_setup_check', 'ci_setup.check.tests'],
+    packages=['ci_setup_check', 'ci_setup_check.tests'],
 )
