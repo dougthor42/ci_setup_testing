@@ -1,3 +1,4 @@
 nose
 wheel
 nose-cov
+--allow-external --upgrade wxPython
