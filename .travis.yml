@@ -1,4 +1,5 @@
 language: python
+sudo: required
 
 python:
   - "2.7"
@@ -6,7 +7,7 @@ python:
 notifications:
   email: false
 
-before-script:
+before_script:
   - curl http://apt.wxwidgets.org/key.asc | sudo apt-key add - 
   - echo "deb http://apt.wxwidgets.org/ Precise-wx main" | sudo tee -a /etc/apt/sources.list
   - echo "eb-src http://apt.wxwidgets.org/ Precise-wx main  " | sudo tee -a /etc/apt/sources.list
