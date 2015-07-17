@@ -22,9 +22,9 @@ before_install:
   - wget https://github.com/wxWidgets/wxPython/archive/wxPy-3.0.2.0.tar.gz
   # extract the tarbal
   - ls
-  - tar -xjf wxPython-src-3.0.2.0.tar.bz2
+  - tar -xzf wxPy-3.0.2.0.tar.gz
   - ls
-  - cd wxPython-src-3.0.2.0/wxPython
+  - cd wxPy-3.0.2.0/wxPython
   - python build-wxpython.py --build_dir=../bld --install
 
 install:
