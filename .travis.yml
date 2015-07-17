@@ -1,5 +1,8 @@
-language: python
+#################################
+# General setup
+#################################
 sudo: false
+language: python
 
 python:
   - "2.7"
@@ -7,15 +10,11 @@ python:
 notifications:
   email: false
 
+#################################
+# Build Lifecycle
+#################################
 before_install:
-  #- apt-key adv --fetch-keys http://repos.codelite.org/CodeLite.asc
-  #- sudo apt-add-repository 'deb http://repos.codelite.org/wx3.0.2/ubuntu/ precise universe'
-  #- curl http://repos.codelite.org/wx3.0.2/ubuntu/ | sudo apt-key add -
-  #- echo "deb http://apt.wxwidgets.org/ Precise-wx main" | sudo tee -a /etc/apt/sources.list
-  #- echo "deb-src http://apt.wxwidgets.org/ Precise-wx main  " | sudo tee -a /etc/apt/sources.list
-  #- sudo apt-get update -qq
-  #- sudo apt-get install python-wxgtk2.8 python-wxtools wx2.8-i18n
-  #- sudo apt-get install python-wxgtk2.8 python-wxtools wx2.8-doc wx2.8-examples wx2.8-headers wx2.8-i18n
+  - echo "-----before_install-----"
   # figure out where we are
 #  - ls
   # download the source tarball
@@ -28,21 +27,46 @@ before_install:
 #  - python build-wxpython.py --build_dir=../bld --install
 
 install:
-  - pip install --upgrade --trusted-host wxpython.org --pre -f http://wxpython.org/Phoenix/snapshot-builds/ wxPython_Phoenix
+  - echo "-----install-----"
+#  - pip install --upgrade --trusted-host wxpython.org --pre -f http://wxpython.org/Phoenix/snapshot-builds/ wxPython_Phoenix
   - pip install --upgrade pip
   - pip install -r dev-requirements.txt
   - pip install coveralls
 
+before_script:
+  - echo "-----before_script-----"
+
 script:
+  - echo "-----script-----"
   #- coverage run -m ci_setup_check core.py test_core.py
   - nosetests --with-cov --cov ci_setup_check --cov-config .coverage.rc --logging-level=INFO
   #- nosetests --with-cov --cov ci_setup_check --logging-level=INFO
 
 # Calculate coverage
 after_success:
+  - echo "-----after_success-----"
   #- coveralls --config_file .coverage.rc
   - coveralls
 
+after_failure:
+  - echo "-----after_failure-----"
+
+after_script:
+  - echo "-----after_script-----"
+
+# Optional Deployment Steps
+#before_deploy:
+#  - echo "-----before_deploy-----"
+#
+#deploy:
+#  - echo "-----deploy-----"
+#
+#after_deploy:
+#  - echo "-----after_deploy-----"
+
+#################################
+# Additional Items
+#################################
 addons:
   apt:
     packages:
@@ -52,8 +76,6 @@ addons:
       - gconf2-common
       - libgconf-2-4
       - libgconf2-4
-      - libgq-gconf-dev
-      - libgq-gconf0
       - dpkg-dev
       - build-essential
       - libjpeg-dev
