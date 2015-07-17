@@ -17,17 +17,18 @@ before_install:
   #- sudo apt-get install python-wxgtk2.8 python-wxtools wx2.8-i18n
   #- sudo apt-get install python-wxgtk2.8 python-wxtools wx2.8-doc wx2.8-examples wx2.8-headers wx2.8-i18n
   # figure out where we are
-  - ls
+#  - ls
   # download the source tarball
-  - wget https://github.com/wxWidgets/wxPython/archive/wxPy-3.0.2.0.tar.gz
+#  - wget https://github.com/wxWidgets/wxPython/archive/wxPy-3.0.2.0.tar.gz
   # extract the tarbal
-  - ls
-  - tar -xzf wxPy-3.0.2.0.tar.gz
-  - ls
-  - cd wxPython-wxPy-3.0.2.0/wxPython
-  - python build-wxpython.py --build_dir=../bld --install
+#  - ls
+#  - tar -xzf wxPy-3.0.2.0.tar.gz
+#  - ls
+#  - cd wxPython-wxPy-3.0.2.0/wxPython
+#  - python build-wxpython.py --build_dir=../bld --install
 
 install:
+  - pip install --upgrade --trusted-host wxpython.org --pre -f http://wxpython.org/Phoenix/snapshot-builds/ wxPython_Phoenix
   - pip install --upgrade pip
   - pip install -r dev-requirements.txt
   - pip install coveralls
@@ -53,5 +54,12 @@ addons:
       - libgconf2-4
       - libgq-gconf-dev
       - libgq-gconf0
+      - dpkg-dev
+      - build-essential
+      - libjpeg-dev
+      - libtiff-dev
+      - libgtk2.0-dev
+      - libsdl1.2-dev
+      - libgstreamer-plugins-base0.10-dev
 
 #  artifacts: true
