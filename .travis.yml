@@ -19,7 +19,7 @@ before_install:
   # figure out where we are
   - ls
   # download the source tarball
-  - wget http://downloads.sourceforge.net/wxpython/wxPython-src-3.0.2.0.tar.bz2
+  #- wget http://downloads.sourceforge.net/wxpython/wxPython-src-3.0.2.0.tar.bz2
   # extract the tarbal
   - ls
   - tar -xjvf wxPython-src-3.0.2.0.tar.bz2
