@@ -6,6 +6,13 @@ python:
 notifications:
   email: false
 
+before-script:
+  - curl http://apt.wxwidgets.org/key.asc | sudo apt-key add - 
+  - echo "deb http://apt.wxwidgets.org/ Precise-wx main" | sudo tee -a /etc/apt/sources.list
+  - echo "eb-src http://apt.wxwidgets.org/ Precise-wx main  " | sudo tee -a /etc/apt/sources.list
+  - sudo apt-get update -qq
+  - sudo apt-get install python-wxgtk2.8 python-wxtools wx2.8-i18n
+
 install:
   - pip install --upgrade pip
   - pip install -r dev-requirements.txt
