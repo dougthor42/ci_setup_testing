@@ -24,7 +24,7 @@ before_install:
   - ls
   - tar -xzf wxPy-3.0.2.0.tar.gz
   - ls
-  - cd wxPy-3.0.2.0/wxPython
+  - cd wxPython-wxPy-3.0.2.0/wxPython
   - python build-wxpython.py --build_dir=../bld --install
 
 install:
