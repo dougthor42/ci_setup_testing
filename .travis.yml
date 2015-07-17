@@ -47,5 +47,12 @@ addons:
     packages:
       - libgstreamer0.10-0
       - libgstreamer-plugins-base0.10-0
+      - libghc-gstreamer-dev
+      - gconf2
+      - gconf2-common
+      - libgconf-2-4
+      - libgconf2-4
+      - libgq-gconf-dev
+      - libgq-gconf0
 
 #  artifacts: true
