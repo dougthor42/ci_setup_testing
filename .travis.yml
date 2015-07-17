@@ -45,6 +45,7 @@ after_success:
 addons:
   apt:
     packages:
-      - gstreamer
+      - libgstreamer0.10-0
+      - libgstreamer-plugins-base0.10-0
 
 #  artifacts: true
