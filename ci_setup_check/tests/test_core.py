@@ -18,9 +18,9 @@ class Examples(unittest.TestCase):
     def test_things(self):
         result = core.func(2, 3)
         self.assertEqual(result, 5)
-        
+
     def test_wx_version(self):
-        self.AssertEqual(wx.ID_ABORT, 5115)
+        self.assertEqual(wx.ID_ABORT, 5115)
 
 
 if __name__ == "__main__":

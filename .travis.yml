@@ -7,15 +7,23 @@ python:
 notifications:
   email: false
 
-before_script:
+before_install:
   #- apt-key adv --fetch-keys http://repos.codelite.org/CodeLite.asc
   #- sudo apt-add-repository 'deb http://repos.codelite.org/wx3.0.2/ubuntu/ precise universe'
-  #- curl http://repos.codelite.org/wx3.0.2/ubuntu/ | sudo apt-key add - 
+  #- curl http://repos.codelite.org/wx3.0.2/ubuntu/ | sudo apt-key add -
   #- echo "deb http://apt.wxwidgets.org/ Precise-wx main" | sudo tee -a /etc/apt/sources.list
   #- echo "deb-src http://apt.wxwidgets.org/ Precise-wx main  " | sudo tee -a /etc/apt/sources.list
   #- sudo apt-get update -qq
   #- sudo apt-get install python-wxgtk2.8 python-wxtools wx2.8-i18n
-  - sudo apt-get install python-wxgtk2.8 python-wxtools wx2.8-doc wx2.8-examples wx2.8-headers wx2.8-i18n
+  #- sudo apt-get install python-wxgtk2.8 python-wxtools wx2.8-doc wx2.8-examples wx2.8-headers wx2.8-i18n
+  # figure out where we are
+  - ls
+  # download the source tarball
+  - wget http://downloads.sourceforge.net/wxpython/wxPython-src-3.0.2.0.tar.bz2
+  # extract the tarbal
+  - tar -xjvf wxPython-src-3.0.2.0.tar.bz2
+  - cd wxPython-src-3.0.2.0/wxPython
+  - python build-wxpython.py --build_dir=../bld --install
 
 install:
   - pip install --upgrade pip
