@@ -1,5 +1,5 @@
 language: python
-sudo: required
+sudo: false
 
 python:
   - "2.7"
@@ -21,7 +21,9 @@ before_install:
   # download the source tarball
   - wget http://downloads.sourceforge.net/wxpython/wxPython-src-3.0.2.0.tar.bz2
   # extract the tarbal
+  - ls
   - tar -xjvf wxPython-src-3.0.2.0.tar.bz2
+  - ls
   - cd wxPython-src-3.0.2.0/wxPython
   - python build-wxpython.py --build_dir=../bld --install
 
