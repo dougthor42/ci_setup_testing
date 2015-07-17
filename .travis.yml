@@ -19,7 +19,7 @@ before_install:
   # figure out where we are
   - ls
   # download the source tarball
-  #- wget http://downloads.sourceforge.net/wxpython/wxPython-src-3.0.2.0.tar.bz2
+  - wget https://github.com/wxWidgets/wxPython/archive/wxPy-3.0.2.0.tar.gz
   # extract the tarbal
   - ls
   - tar -xjf wxPython-src-3.0.2.0.tar.bz2
@@ -42,5 +42,9 @@ after_success:
   #- coveralls --config_file .coverage.rc
   - coveralls
 
-#addons:
+addons:
+  apt:
+    packages:
+      - gstreamer
+
 #  artifacts: true
