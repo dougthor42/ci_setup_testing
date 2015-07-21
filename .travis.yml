@@ -29,7 +29,6 @@ before_install:
   - ls ./wx/build
   - ls
   - ls ../
-#  - cat ../configure
   # comment out --enable-mediactrl in ../configure
   - cat ../configure | grep enable-mediactrl
   - sed -i 's|--enable-mediactrl|#--enable-mediactrl|' ../configure
@@ -43,7 +42,7 @@ before_install:
 #  - cat ./distrib/wxPythonFull.spec.in | grep mediactrl
 
   # start the build
-#  - python build-wxpython.py --build_dir=../bld --install
+  - python build-wxpython.py --build_dir=../bld --install
 
 install:
   - echo "-----install-----"
