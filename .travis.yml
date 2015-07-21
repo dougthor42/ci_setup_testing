@@ -29,10 +29,12 @@ before_install:
   - cat build-wxpython.py
 
   # replace one line in build-wxpython.py
-  #- sed -i s/
+#  - sed -i s/%if %{?mediactrl:0}%{!?mediactrl:1}/#%if %{?mediactrl:0}%{!?mediactrl:1}/ ./distrib/wxPythonFull.spec.in
+  - sed -i s/%define mediactrl 1/%define mediactrl 0/ ./distrib/wxPythonFull.spec.in
+#  - sed -i s/%if %{?mediactrl:0}%{!?mediactrl:1}/#%if %{?mediactrl:0}%{!?mediactrl:1}/ ./distrib/wxPythonFull.spec.in
 
   # start the build
-  - python build-wxpython.py --disable-mediactrl --build_dir=../bld --install
+  - python build-wxpython.py --build_dir=../bld --install
 
 install:
   - echo "-----install-----"
@@ -80,7 +82,6 @@ addons:
     packages:
       - libgstreamer0.10-0
       - libgstreamer-plugins-base0.10-0
-      - libghc-gstreamer-dev
       - gconf2
       - gconf2-common
       - libgconf-2-4
@@ -88,9 +89,12 @@ addons:
       - dpkg-dev
       - build-essential
       - libjpeg-dev
-#      - libtiff-dev
       - libgtk2.0-dev
       - libsdl1.2-dev
+
+      # Disallowed packages
+#      - libghc-gstreamer-dev
 #      - libgstreamer-plugins-base0.10-dev
+#      - libtiff-dev
 
 #  artifacts: true
