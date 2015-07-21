@@ -30,7 +30,7 @@ before_install:
 
   # replace one line in build-wxpython.py
 #  - sed -i s/%if %{?mediactrl:0}%{!?mediactrl:1}/#%if %{?mediactrl:0}%{!?mediactrl:1}/ ./distrib/wxPythonFull.spec.in
-  - sed -i s/%define mediactrl 1/%define mediactrl 0/ ./distrib/wxPythonFull.spec.in
+  - sed -i 's|%define mediactrl 1|%define mediactrl 0|' ./distrib/wxPythonFull.spec.in
 #  - sed -i s/%if %{?mediactrl:0}%{!?mediactrl:1}/#%if %{?mediactrl:0}%{!?mediactrl:1}/ ./distrib/wxPythonFull.spec.in
 
   # start the build
