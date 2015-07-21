@@ -31,9 +31,9 @@ before_install:
   - ls ../
 #  - cat ../configure
   # comment out --enable-mediactrl in ../configure
-  - cat ../configure | grep '--enable-mediactrl'
+  - cat ../configure | grep enable-mediactrl
   - sed -i 's|--enable-mediactrl|#--enable-mediactrl|' ../configure
-  - cat ../configure | grep '--enable-mediactrl'
+  - cat ../configure | grep enable-mediactrl
 
 #  - cat ../make
 
