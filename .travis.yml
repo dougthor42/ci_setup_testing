@@ -34,7 +34,7 @@ before_install:
   - cat ./distrib/wxPythonFull.spec.in | grep mediactrl
 
   # start the build
-  - python build-wxpython.py --build_dir=../bld --install
+  - python build-wxpython.py --extra_setup=disable-mediactrl --build_dir=../bld --install
 
 install:
   - echo "-----install-----"
