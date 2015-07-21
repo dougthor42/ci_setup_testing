@@ -44,10 +44,13 @@ before_install:
   # start the build
 #  - python build-wxpython.py --build_dir=../bld --install
 
-  - ../configure --help
-  - ../configure -q
-  - ../make
-  - ../make install
+  - cd ../
+  - ls
+  - configure --help
+  - ./configure -q
+  - ls
+  - make
+  - make install
 
 
 install:
