@@ -28,6 +28,8 @@ before_install:
   - ls ./wx
   - ls ./wx/build
   - ls
+  - ls ../
+  - cat ../configure
 
   # replace one line in wxPythonFull.spec.in
   - cat ./distrib/wxPythonFull.spec.in | grep mediactrl
@@ -35,7 +37,7 @@ before_install:
   - cat ./distrib/wxPythonFull.spec.in | grep mediactrl
 
   # start the build
-  - python build-wxpython.py --build_dir=../bld --install
+#  - python build-wxpython.py --build_dir=../bld --install
 
 install:
   - echo "-----install-----"
