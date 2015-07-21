@@ -45,6 +45,7 @@ before_install:
 #  - python build-wxpython.py --build_dir=../bld --install
 
   - ../configure --help
+  - ../configure -q
   - ../make
   - ../make install
 
@@ -95,13 +96,13 @@ addons:
     packages:
       - libgstreamer0.10-0
       - libgstreamer-plugins-base0.10-0
-      - gconf2
-      - gconf2-common
-      - libgconf-2-4
-      - libgconf2-4
+#      - gconf2
+#      - gconf2-common
+#      - libgconf-2-4
+#      - libgconf2-4
       - dpkg-dev
-      - build-essential
-      - libjpeg-dev
+#      - build-essential
+#      - libjpeg-dev
       - libgtk2.0-dev
       - libsdl1.2-dev
 
