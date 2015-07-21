@@ -46,7 +46,7 @@ before_install:
 
   - cd ../
   - ls
-  - configure --help
+  - ./configure --help
   - ./configure -q
   - ls
   - make
@@ -97,8 +97,8 @@ after_script:
 addons:
   apt:
     packages:
-      - libgstreamer0.10-0
-      - libgstreamer-plugins-base0.10-0
+#      - libgstreamer0.10-0
+#      - libgstreamer-plugins-base0.10-0
 #      - gconf2
 #      - gconf2-common
 #      - libgconf-2-4
