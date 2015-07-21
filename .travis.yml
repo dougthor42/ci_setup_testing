@@ -27,7 +27,12 @@ before_install:
   - ls /usr/lib/pkgconfig
   - ls
   - cat build-wxpython.py
-  - python build-wxpython.py --build_dir=../bld --install
+
+  # replace one line in build-wxpython.py
+  #- sed -i s/
+
+  # start the build
+  - python build-wxpython.py --disable-mediactrl --build_dir=../bld --install
 
 install:
   - echo "-----install-----"
