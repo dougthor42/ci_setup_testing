@@ -24,6 +24,8 @@ before_install:
   - tar -xzf wxPy-3.0.2.0.tar.gz
   - ls
   - cd wxPython-wxPy-3.0.2.0/wxPython
+  - ls /usr/lib64/pkgconfig
+  - ls /usr/lib/pkgconfig
   - pkg-config libgstreamer0.10-0 --cflags
   - python build-wxpython.py --build_dir=../bld --install
 
