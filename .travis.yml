@@ -24,9 +24,9 @@ before_install:
   - tar -xzf wxPy-3.0.2.0.tar.gz
   - ls
   - cd wxPython-wxPy-3.0.2.0/wxPython
-  - ls /usr/lib/pkgconfig
+  - ls ./wx
   - ls
-  - cat configure
+#  - cat configure
 
   # replace one line in wxPythonFull.spec.in
   - cat ./distrib/wxPythonFull.spec.in | grep mediactrl
@@ -34,7 +34,7 @@ before_install:
   - cat ./distrib/wxPythonFull.spec.in | grep mediactrl
 
   # start the build
-  - python build-wxpython.py --extra_setup=disable-mediactrl --build_dir=../bld --install
+  - python build-wxpython.py --no-config --build_dir=../bld --install
 
 install:
   - echo "-----install-----"
