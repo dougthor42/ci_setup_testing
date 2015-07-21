@@ -42,7 +42,12 @@ before_install:
 #  - cat ./distrib/wxPythonFull.spec.in | grep mediactrl
 
   # start the build
-  - python build-wxpython.py --build_dir=../bld --install
+#  - python build-wxpython.py --build_dir=../bld --install
+
+  - ../configure --help
+  - ../make
+  - ../make install
+
 
 install:
   - echo "-----install-----"
@@ -101,7 +106,7 @@ addons:
       - libsdl1.2-dev
 
       # Disallowed packages
-      - libghc-gstreamer-dev
+      - libghc-gstreamer-dev    # Sometimes allowed, sometimes isn't?
 #      - libgstreamer-plugins-base0.10-dev
 #      - libtiff-dev
 
