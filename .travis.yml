@@ -26,7 +26,7 @@ before_install:
   - cd wxPython-wxPy-3.0.2.0/wxPython
   - ls /usr/lib/pkgconfig
   - ls
-  - cat build-wxpython.py
+  - cat configure
 
   # replace one line in wxPythonFull.spec.in
   - cat ./distrib/wxPythonFull.spec.in | grep mediactrl
