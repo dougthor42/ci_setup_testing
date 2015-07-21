@@ -26,9 +26,7 @@ before_install:
   - cd wxPython-wxPy-3.0.2.0/wxPython
   - ls /usr/lib/pkgconfig
   - ls
-  - ls ./build
-  - ls ./build/tools
-  - cat ./build/tools/build-wxpython.py
+  - cat build-wxpython.py
   - python build-wxpython.py --build_dir=../bld --install
 
 install:
