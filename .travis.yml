@@ -16,15 +16,16 @@ notifications:
 before_install:
   - echo "-----before_install-----"
   # figure out where we are
-#  - ls
+  - ls
   # download the source tarball
-#  - wget https://github.com/wxWidgets/wxPython/archive/wxPy-3.0.2.0.tar.gz
+  - wget https://github.com/wxWidgets/wxPython/archive/wxPy-3.0.2.0.tar.gz
   # extract the tarbal
-#  - ls
-#  - tar -xzf wxPy-3.0.2.0.tar.gz
-#  - ls
-#  - cd wxPython-wxPy-3.0.2.0/wxPython
-#  - python build-wxpython.py --build_dir=../bld --install
+  - ls
+  - tar -xzf wxPy-3.0.2.0.tar.gz
+  - ls
+  - cd wxPython-wxPy-3.0.2.0/wxPython
+  - pkg-config gstreamer-0.10 --cflags
+  - python build-wxpython.py --build_dir=../bld --install
 
 install:
   - echo "-----install-----"
