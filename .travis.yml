@@ -29,12 +29,18 @@ before_install:
   - ls ./wx/build
   - ls
   - ls ../
-  - cat ../configure
+#  - cat ../configure
+  # comment out --enable-mediactrl in ../configure
+  - cat ../configure | grep --enable-mediactrl
+  - sed -i 's|--enable-mediactrl|#--enable-mediactrl|' ../configure
+  - cat ../configure | grep --enable-mediactrl
+
+#  - cat ../make
 
   # replace one line in wxPythonFull.spec.in
-  - cat ./distrib/wxPythonFull.spec.in | grep mediactrl
-  - sed -i 's|%define mediactrl 1|%define mediactrl 0|' ./distrib/wxPythonFull.spec.in
-  - cat ./distrib/wxPythonFull.spec.in | grep mediactrl
+#  - cat ./distrib/wxPythonFull.spec.in | grep mediactrl
+#  - sed -i 's|%define mediactrl 1|%define mediactrl 0|' ./distrib/wxPythonFull.spec.in
+#  - cat ./distrib/wxPythonFull.spec.in | grep mediactrl
 
   # start the build
 #  - python build-wxpython.py --build_dir=../bld --install
