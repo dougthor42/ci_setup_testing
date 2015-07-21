@@ -23,11 +23,11 @@ before_install:
   - ls
   - tar -xzf wxPy-3.0.2.0.tar.gz
   - ls
+  - ls wxPython-wxPy-3.0.2.0
   - cd wxPython-wxPy-3.0.2.0/wxPython
   - ls ./wx
   - ls ./wx/build
   - ls
-  - configure
 
   # replace one line in wxPythonFull.spec.in
   - cat ./distrib/wxPythonFull.spec.in | grep mediactrl
@@ -94,7 +94,7 @@ addons:
       - libsdl1.2-dev
 
       # Disallowed packages
-#      - libghc-gstreamer-dev
+      - libghc-gstreamer-dev
 #      - libgstreamer-plugins-base0.10-dev
 #      - libtiff-dev
 
