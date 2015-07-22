@@ -62,18 +62,18 @@ before_install:
 
 
   # get Conda
-  - if [[ "$TRAVIS_PYTHON_VERSION" == "2.7" ]]; then
-      wget https://repo.continuum.io/miniconda/Miniconda-latest-Linux-x86_64.sh -O miniconda.sh;
-    else
-      wget https://repo.continuum.io/miniconda/Miniconda3-latest-Linux-x86_64.sh -O miniconda.sh;
-    fi
-  - bash miniconda.sh -b -p $HOME/miniconda
-  - export PATH="$HOME/miniconda/bin:$PATH"
-  - hash -r
-  - conda config --set always_yes yes --set changeps1 no
-  - conda update -q conda
-  # Useful for debugging any issues with conda
-  - conda info -a
+#  - if [[ "$TRAVIS_PYTHON_VERSION" == "2.7" ]]; then
+#      wget https://repo.continuum.io/miniconda/Miniconda-latest-Linux-x86_64.sh -O miniconda.sh;
+#    else
+#      wget https://repo.continuum.io/miniconda/Miniconda3-latest-Linux-x86_64.sh -O miniconda.sh;
+#    fi
+#  - bash miniconda.sh -b -p $HOME/miniconda
+#  - export PATH="$HOME/miniconda/bin:$PATH"
+#  - hash -r
+#  - conda config --set always_yes yes --set changeps1 no
+#  - conda update -q conda
+#  # Useful for debugging any issues with conda
+#  - conda info -a
 
   # Replace dep1 dep2 ... with your dependencies
 #  - conda create -q -n test-environment python=$TRAVIS_PYTHON_VERSION dep1 dep2 ...
@@ -82,7 +82,7 @@ before_install:
 
 install:
   - echo "-----install-----"
-  - conda install -c https://conda.anaconda.org/travis wxpython
+#  - conda install -c https://conda.anaconda.org/travis wxpython
 #  - pip install --upgrade --trusted-host wxpython.org --pre -f http://wxpython.org/Phoenix/snapshot-builds/ wxPython_Phoenix
   - pip install --upgrade pip
   - pip install -r dev-requirements.txt
@@ -142,5 +142,13 @@ after_script:
 #      - libghc-gstreamer-dev    # Sometimes allowed, sometimes isn't?
 #      - libgstreamer-plugins-base0.10-dev
 #      - libtiff-dev
+
+      # for wxPython:
+      - python-wxgtk2.8
+      - python-wxtools
+      - wx2.8-doc
+      - wx2.8-examples
+      - wx2.8-headers
+      - wx2.8-i18n
 
 #  artifacts: true
