@@ -52,6 +52,7 @@ before_install:
   - sudo make install
 
   # start the build
+  - cd wxpython
   - python build-wxpython.py --no_config --build_dir=../bld --install
 
   # Make sure to cd back to the original dir before install
