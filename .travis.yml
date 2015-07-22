@@ -51,8 +51,10 @@ before_install:
   - ./configure -q
   - ls
   - make -s
-  - cat Makefile.in
   - sudo make install
+
+  # Make sure to cd back to the original dir before install
+  - cd /home/travis/build/dougthor42/ci_setup_testing
 
 
 install:
