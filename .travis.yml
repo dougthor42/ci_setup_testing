@@ -19,21 +19,22 @@ before_install:
   # figure out where we are
   - ls
   # download the source tarball
-  - wget https://github.com/wxWidgets/wxPython/archive/wxPy-3.0.2.0.tar.gz
+#  - wget https://github.com/wxWidgets/wxPython/archive/wxPy-3.0.2.0.tar.gz
   # extract the tarbal
-  - ls
-  - tar -xzf wxPy-3.0.2.0.tar.gz
-  - ls
-  - ls wxPython-wxPy-3.0.2.0
-  - cd wxPython-wxPy-3.0.2.0/wxPython
-  - ls ./wx
-  - ls ./wx/build
-  - ls
-  - ls ../
+#  - ls
+#  - tar -xzf wxPy-3.0.2.0.tar.gz
+#  - ls
+#  - ls wxPython-wxPy-3.0.2.0
+#  - cd wxPython-wxPy-3.0.2.0/wxPython
+#  - ls ./wx
+#  - ls ./wx/build
+#  - ls
+#  - ls ../
+
   # comment out --enable-mediactrl in ../configure
-  - cat ../configure | grep enable-mediactrl
-  - sed -i 's|--enable-mediactrl|#--enable-mediactrl|' ../configure
-  - cat ../configure | grep enable-mediactrl
+#  - cat ../configure | grep enable-mediactrl
+#  - sed -i 's|--enable-mediactrl|#--enable-mediactrl|' ../configure
+#  - cat ../configure | grep enable-mediactrl
 
 #  - cat ../make
 
@@ -43,24 +44,26 @@ before_install:
 #  - cat ./distrib/wxPythonFull.spec.in | grep mediactrl
 
   # Build wxWidgets the old fashion way
-  - cd ../
+#  - cd ../
 #  - ls
 #  - ./configure --help
 #  - ./configure -q
+#  - ./configure -q --prefix=/home/travis/build/dougthor42/
 #  - ls
 #  - make -s
 #  - sudo make install
 
   # start the build
-  - cd wxPython
-  - sudo python build-wxpython.py --build_dir=../bld --install
+#  - cd wxPython
+#  - sudo python build-wxpython.py --build_dir=../bld --install
 
   # Make sure to cd back to the original dir before install
-  - cd /home/travis/build/dougthor42/ci_setup_testing
+#  - cd /home/travis/build/dougthor42/ci_setup_testing
 
 
 install:
   - echo "-----install-----"
+  - conda install -c https://conda.anaconda.org/travis wxpython
 #  - pip install --upgrade --trusted-host wxpython.org --pre -f http://wxpython.org/Phoenix/snapshot-builds/ wxPython_Phoenix
   - pip install --upgrade pip
   - pip install -r dev-requirements.txt
