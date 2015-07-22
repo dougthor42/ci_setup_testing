@@ -122,24 +122,24 @@ after_script:
 #################################
 # Additional Items
 #################################
-addons:
-  apt:
-    packages:
+#addons:
+#  apt:
+#    packages:
 #      - libgstreamer0.10-0
 #      - libgstreamer-plugins-base0.10-0
 #      - gconf2
 #      - gconf2-common
 #      - libgconf-2-4
 #      - libgconf2-4
-      - dpkg-dev
-      - libnotify
+#      - dpkg-dev
+#      - libnotify
 #      - build-essential
 #      - libjpeg-dev
 #      - libgtk2.0-dev
-      - libsdl1.2-dev
+#      - libsdl1.2-dev
 
       # Disallowed packages
-      - libghc-gstreamer-dev    # Sometimes allowed, sometimes isn't?
+#      - libghc-gstreamer-dev    # Sometimes allowed, sometimes isn't?
 #      - libgstreamer-plugins-base0.10-dev
 #      - libtiff-dev
 
