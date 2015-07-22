@@ -67,7 +67,8 @@ install:
   - "python -c \"import struct; print(struct.calcsize('P') * 8)\""
 
   # install dependencies
-  - "%CMD_IN_ENV% pip install --upgrade --pre http://wxpython.org/Phoenix/snapshot-builds/wxPython_Phoenix-3.0.3.dev1820+49a8884-cp27-none-win32.whl"
+#  - "%CMD_IN_ENV% pip install --upgrade --pre http://wxpython.org/Phoenix/snapshot-builds/wxPython_Phoenix-3.0.3.dev1820+49a8884-cp27-none-win32.whl"
+  - "%CMD_IN_ENV% pip install --upgrade --trusted-host wxpython.org --pre -vv http://wxpython.org/Phoenix/snapshot-builds/ wxPython_Phoenix"
   - "%CMD_IN_ENV% pip install -r dev-requirements.txt"
 #  - "%CMD_IN_ENV% pip install setuptools pip"
 #  - "%CMD_IN_ENV% pip install ."
