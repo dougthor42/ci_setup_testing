@@ -1,8 +1,8 @@
 #################################
 # General setup
 #################################
-#sudo: false
-sudo: required
+sudo: false
+#sudo: required
 language: python
 
 python:
