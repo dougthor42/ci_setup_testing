@@ -111,6 +111,11 @@ script:
 
 after_success:
   - echo "----- after_success -----"
+  - echo "----- Building a wxPython wheel -----"
+  - cd Phoenix
+  - ls
+  - python setup.py bdist_wheel
+  - ls
 
 after_failure:
   - echo "----- after_failure -----"
