@@ -185,9 +185,9 @@ script:
   - python ./build.py --build_dir=./bld etg --nodoc
 #  - sudo -E python ./build.py --build_dir=./bld sip
   - python ./build.py --build_dir=./bld sip
-#  - python ./build.py --build_dir=./bld build_wx
-#  - python ./build.py --build_dir=./bld build_py
-#  - python ./build.py --build_dir=./bld test --verbose
+  - python ./build.py --build_dir=./bld build_wx
+  - python ./build.py --build_dir=./bld build_py
+  - python ./build.py --build_dir=./bld test --verbose
 
 #  - nosetests
 #  - python --version
@@ -209,9 +209,7 @@ addons:
   apt:
     packages:
       - libghc-gstreamer-dev
-      - dpkg-dev
       - libnotify
-      - libsdl1.2-dev
 
       # For wxPython?
       - dpkg-dev
@@ -225,3 +223,4 @@ addons:
       - libgstreamer-plugins-base0.10-dev
       - freeglut3
       - freeglut3-dev
+      - libnotify-dev
