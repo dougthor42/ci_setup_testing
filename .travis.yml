@@ -18,6 +18,13 @@ notifications:
 before_install:
   - echo "-----before_install-----"
 
+  # print out some system info
+  - lscpu
+  - free -ht
+  - cat /proc/version
+  - cat /etc/*release*
+  - lsb_release -a
+
   # Installing SIP from source
   # -------------------------------------------------------------------------
   # Download the source tarball
@@ -110,29 +117,29 @@ before_install:
 #  - git checkout 49a8884e7c
 
   # Download dox because the build script fails at doing so for some reason.
-  - wget http://wxpython.org/Phoenix/tools/doxygen-1.8.8-linux.bz2
-  - bzip2 -d doxygen-1.8.8-linux.bz2
-  - mv doxygen-1.8.8-linux ./bin/doxygen-1.8.8-linux
-  - chmod 755 ./bin/doxygen-1.8.8-linux
+#  - wget http://wxpython.org/Phoenix/tools/doxygen-1.8.8-linux.bz2
+#  - bzip2 -d doxygen-1.8.8-linux.bz2
+#  - mv doxygen-1.8.8-linux ./bin/doxygen-1.8.8-linux
+#  - chmod 755 ./bin/doxygen-1.8.8-linux
 
   # Download sip because the build script fails at doing so for some reason.
-  - wget http://wxpython.org/Phoenix/tools/sip-4.16.7-linux.bz2
-  - bzip2 -d sip-4.16.7-linux.bz2
-  - mv sip-4.16.7-linux ./bin/sip-4.16.7-linux
-  - chmod 755 ./bin/sip-4.16.7-linux
-  - pwd
-  - ls -l
-  - ls -l ./bin
-  - export SIP=/home/travis/build/dougthor42/ci_setup_testing/Phoenix/bin/sip-4.16.7-linux
-  - set | grep SIP
-  - env | grep SIP
+#  - wget http://wxpython.org/Phoenix/tools/sip-4.16.7-linux.bz2
+#  - bzip2 -d sip-4.16.7-linux.bz2
+#  - mv sip-4.16.7-linux ./bin/sip-4.16.7-linux
+#  - chmod 755 ./bin/sip-4.16.7-linux
+#  - pwd
+#  - ls -l
+#  - ls -l ./bin
+#  - export SIP=/home/travis/build/dougthor42/ci_setup_testing/Phoenix/bin/sip-4.16.7-linux
+#  - set | grep SIP
+#  - env | grep SIP
 
   # Follow the same flow for building wxPython from source.
   - python ./build.py --build_dir=./bld dox
   - python ./build.py --build_dir=./bld touch
   - python ./build.py --build_dir=./bld etg --nodoc
-  - sudo -E python ./build.py --build_dir=./bld sip
-#  - python ./build.py --build_dir=./bld sip
+#  - sudo -E python ./build.py --build_dir=./bld sip
+  - python ./build.py --build_dir=./bld sip
   - python ./build.py --build_dir=./bld build_wx
   - python ./build.py --build_dir=./bld build_py
   - python ./build.py --build_dir=./bld test --verbose
