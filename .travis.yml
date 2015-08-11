@@ -22,7 +22,7 @@ before_install:
   # print out some system info
   - lscpu
 #  - free -ht       # doesn't like -h (human readable) :-(
-  - echo "Free Memory (megabytes)
+  - echo "Free Memory (megabytes)"
   - free -mt
   - cat /proc/version
   - cat /etc/*release*
