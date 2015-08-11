@@ -185,9 +185,9 @@ script:
   - python ./build.py --build_dir=./bld etg --nodoc
 #  - sudo -E python ./build.py --build_dir=./bld sip
   - python ./build.py --build_dir=./bld sip
-  - python ./build.py --build_dir=./bld build_wx
-  - python ./build.py --build_dir=./bld build_py
-  - python ./build.py --build_dir=./bld test --verbose
+#  - python ./build.py --build_dir=./bld build_wx
+#  - python ./build.py --build_dir=./bld build_py
+#  - python ./build.py --build_dir=./bld test --verbose
 
 #  - nosetests
 #  - python --version
@@ -197,9 +197,9 @@ after_success:
 
 after_failure:
   - echo "----- after_failure -----"
-  - ls /home/travis/build/dougthor42/ci_setup_testing/Phoenix/
-  - ls /home/travis/build/dougthor42/ci_setup_testing/Phoenix/bin
-  - ls /home/travis/build/dougthor42/ci_setup_testing/Phoenix/bin/sip-4.16.7-linux
+  - ls -lh /home/travis/build/dougthor42/ci_setup_testing/Phoenix/
+  - ls -lh /home/travis/build/dougthor42/ci_setup_testing/Phoenix/bin
+  - ls -lh /home/travis/build/dougthor42/ci_setup_testing/Phoenix/bin/sip-4.16.7-linux
 
 #################################
 # Additional Items
