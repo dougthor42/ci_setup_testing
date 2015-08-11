@@ -116,6 +116,8 @@ after_success:
   - ls
   - python setup.py bdist_wheel
   - ls
+  - cd dist
+  - ls
 
 after_failure:
   - echo "----- after_failure -----"
