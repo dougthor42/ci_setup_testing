@@ -200,6 +200,7 @@ after_failure:
   - ls -lh /home/travis/build/dougthor42/ci_setup_testing/Phoenix/
   - ls -lh /home/travis/build/dougthor42/ci_setup_testing/Phoenix/bin
   - ls -lh /home/travis/build/dougthor42/ci_setup_testing/Phoenix/bin/sip-4.16.7-linux
+  - file /home/travis/build/dougthor42/ci_setup_testing/Phoenix/bin/sip-4.16.7-linux
 
 #################################
 # Additional Items
