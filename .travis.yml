@@ -29,42 +29,6 @@ before_install:
   - cat /etc/*release*
   - lsb_release -a
 
-  # Installing SIP from source
-  # -------------------------------------------------------------------------
-  # Download the source tarball
-#  - wget http://www.riverbankcomputing.com/static/Downloads/sip4/sip-4.16.9.tar.gz
-#  - ls
-
-  # extract it
-#  - tar -xzf sip-4.16.9.tar.gz
-#  - pwd
-#  - ls
-
-  # run configure, make, and make install
-#  - cd sip-4.16.9
-#  - ls
-#  - python configure.py
-#  - make
-#  - sudo make install
-#  - cd ..
-#  - pwd
-
-  # Set the `SIP` environment variable to the sip install location
-  # (used by wxPython later, see build.py:562)
-#  - export SIP=/home/travis/virtualenv/python3.4.2/bin/sip
-#  - set | grep SIP
-#  - env | grep SIP
-#  - ls -l /home/travis/virtualenv/python3.4.2/bin/
-#  - ls -l /home/travis/virtualenv/python3.4.2/bin/sip
-
-  # TODO: look into moving sip install to
-  # /home/travis/build/dougthor42/ci_setup_testing/wxPython_Phoenix-3.0.3.dev1820+49a8884/bin/sip-4.16.7-linux
-  # that will allow me to remove the environment variable and the
-  # -E on the build.py sip command.
-
-  # -------------------------------------------------------------------------
-
-
   # Installing wxPython Phoenix from snapshot
   # -------------------------------------------------------------------------
   # Download the source tarball
@@ -90,7 +54,6 @@ before_install:
 #  - python ./build.py --build_dir=./bld dox
 #  - python ./build.py --build_dir=./bld touch
 #  - python ./build.py --build_dir=./bld etg --nodoc
-#  - sudo -E python ./build.py --build_dir=./bld sip
 #  - python ./build.py --build_dir=./bld build      # split into _wx and _py
 #  - python ./build.py --build_dir=./bld build_wx
 
@@ -106,7 +69,7 @@ before_install:
 
   # Installing wxPython Phoenix from repo clone of 49a8884e7c
   # -------------------------------------------------------------------------
-#  - echo "Installing wxPython Phoenix from repo clone of 49a8884e7c"
+  - echo "Installing wxPython Phoenix from repo clone of 49a8884e7c"
   # Clone the repo (downloads entire history)
   - git clone --depth=50 --branch=master git://github.com/wxWidgets/Phoenix.git
 
@@ -117,36 +80,14 @@ before_install:
   - git submodule init
   - git submodule update
 
-  # Switch to the correct commit:
-#  - git checkout 49a8884e7c
-
-  # Download dox because the build script fails at doing so for some reason.
-#  - wget http://wxpython.org/Phoenix/tools/doxygen-1.8.8-linux.bz2
-#  - bzip2 -d doxygen-1.8.8-linux.bz2
-#  - mv doxygen-1.8.8-linux ./bin/doxygen-1.8.8-linux
-#  - chmod 755 ./bin/doxygen-1.8.8-linux
-
-  # Download sip because the build script fails at doing so for some reason.
-#  - wget http://wxpython.org/Phoenix/tools/sip-4.16.7-linux.bz2
-#  - bzip2 -d sip-4.16.7-linux.bz2
-#  - mv sip-4.16.7-linux ./bin/sip-4.16.7-linux
-#  - chmod 755 ./bin/sip-4.16.7-linux
-#  - pwd
-#  - ls -l
-#  - ls -l ./bin
-#  - export SIP=/home/travis/build/dougthor42/ci_setup_testing/Phoenix/bin/sip-4.16.7-linux
-#  - set | grep SIP
-#  - env | grep SIP
-
   # Follow the same flow for building wxPython from source.
-  - python ./build.py --build_dir=./bld dox
-  - python ./build.py --build_dir=./bld touch
-  - python ./build.py --build_dir=./bld etg --nodoc
-#  - sudo -E python ./build.py --build_dir=./bld sip
-  - python ./build.py --build_dir=./bld sip
-  - python ./build.py --build_dir=./bld build_wx
-  - python ./build.py --build_dir=./bld build_py
-  - python ./build.py --build_dir=./bld test --verbose
+  - python ./build.py dox
+  - python ./build.py build_wx --jobs=16
+  - python ./build.py touch
+  - python ./build.py etg --nodoc
+  - python ./build.py sip
+  - python ./build.py build_py --jobs=16
+#  - python ./build.py --build_dir=./bld test --verbose
 
 install:
   - echo "----- install -----"
@@ -159,7 +100,6 @@ install:
 #  - pip install coveralls
 #  - pip install wheel
 #  - pip install numpy
-#  - pip install "wxPython_Phoenix-3.0.3.dev1820+49a8884.tar.gz"
 #  - pip install --upgrade --pre --trusted-host wxpython.org -vvv -f http://wxpython.org/Phoenix/snapshot-builds/ wxPython_Phoenix
 
 before_script:
@@ -167,30 +107,7 @@ before_script:
 
 script:
   - echo "----- script -----"
-
-#  - echo "Installing wxPython Phoenix from repo clone of 49a8884e7c"
-  # Clone the repo (downloads entire history)
-#  - git clone --depth=50 --branch=master git://github.com/wxWidgets/Phoenix.git
-
-  # Change to the directory
-#  - cd Phoenix
-
-  # Have to get submodule wxWidgets. See README.rts:building-wxwidgets
-#  - git submodule init
-#  - git submodule update
-
-  # Follow the same flow for building wxPython from source.
-#  - python ./build.py --build_dir=./bld dox
-#  - python ./build.py --build_dir=./bld touch
-#  - python ./build.py --build_dir=./bld etg --nodoc
-#  - sudo -E python ./build.py --build_dir=./bld sip
-#  - python ./build.py --build_dir=./bld sip
-#  - python ./build.py --build_dir=./bld build_wx
-#  - python ./build.py --build_dir=./bld build_py
-#  - python ./build.py --build_dir=./bld test --verbose
-
-  - nosetests
-#  - python --version
+#  - nosetests
 
 after_success:
   - echo "----- after_success -----"
@@ -199,8 +116,8 @@ after_failure:
   - echo "----- after_failure -----"
   - ls -lh /home/travis/build/dougthor42/ci_setup_testing/Phoenix/
   - ls -lh /home/travis/build/dougthor42/ci_setup_testing/Phoenix/bin
-  - ls -lh /home/travis/build/dougthor42/ci_setup_testing/Phoenix/bin/sip-4.16.7-linux
-  - file /home/travis/build/dougthor42/ci_setup_testing/Phoenix/bin/sip-4.16.7-linux
+#  - ls -lh /home/travis/build/dougthor42/ci_setup_testing/Phoenix/bin/sip-4.16.7-linux
+#  - file /home/travis/build/dougthor42/ci_setup_testing/Phoenix/bin/sip-4.16.7-linux
 
 #################################
 # Additional Items
@@ -214,7 +131,6 @@ addons:
       # For wxPython?
       - dpkg-dev
       - build-essential
-#      - python3.4-dev
       - libwebkitgtk-dev
       - libjpeg-dev
       - libtiff-dev
