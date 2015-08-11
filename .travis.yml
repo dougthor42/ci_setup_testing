@@ -108,14 +108,14 @@ before_install:
   # -------------------------------------------------------------------------
 #  - echo "Installing wxPython Phoenix from repo clone of 49a8884e7c"
   # Clone the repo (downloads entire history)
-#  - git clone --depth=50 --branch=master git://github.com/wxWidgets/Phoenix.git
+  - git clone --depth=50 --branch=master git://github.com/wxWidgets/Phoenix.git
 
   # Change to the directory
-#  - cd Phoenix
+  - cd Phoenix
 
   # Have to get submodule wxWidgets. See README.rts:building-wxwidgets
-#  - git submodule init
-#  - git submodule update
+  - git submodule init
+  - git submodule update
 
   # Switch to the correct commit:
 #  - git checkout 49a8884e7c
@@ -139,14 +139,14 @@ before_install:
 #  - env | grep SIP
 
   # Follow the same flow for building wxPython from source.
-#  - python ./build.py --build_dir=./bld dox
-#  - python ./build.py --build_dir=./bld touch
-#  - python ./build.py --build_dir=./bld etg --nodoc
+  - python ./build.py --build_dir=./bld dox
+  - python ./build.py --build_dir=./bld touch
+  - python ./build.py --build_dir=./bld etg --nodoc
 #  - sudo -E python ./build.py --build_dir=./bld sip
-#  - python ./build.py --build_dir=./bld sip
-#  - python ./build.py --build_dir=./bld build_wx
-#  - python ./build.py --build_dir=./bld build_py
-#  - python ./build.py --build_dir=./bld test --verbose
+  - python ./build.py --build_dir=./bld sip
+  - python ./build.py --build_dir=./bld build_wx
+  - python ./build.py --build_dir=./bld build_py
+  - python ./build.py --build_dir=./bld test --verbose
 
 install:
   - echo "----- install -----"
@@ -168,28 +168,28 @@ before_script:
 script:
   - echo "----- script -----"
 
-  - echo "Installing wxPython Phoenix from repo clone of 49a8884e7c"
+#  - echo "Installing wxPython Phoenix from repo clone of 49a8884e7c"
   # Clone the repo (downloads entire history)
-  - git clone --depth=50 --branch=master git://github.com/wxWidgets/Phoenix.git
+#  - git clone --depth=50 --branch=master git://github.com/wxWidgets/Phoenix.git
 
   # Change to the directory
-  - cd Phoenix
+#  - cd Phoenix
 
   # Have to get submodule wxWidgets. See README.rts:building-wxwidgets
-  - git submodule init
-  - git submodule update
+#  - git submodule init
+#  - git submodule update
 
   # Follow the same flow for building wxPython from source.
-  - python ./build.py --build_dir=./bld dox
-  - python ./build.py --build_dir=./bld touch
-  - python ./build.py --build_dir=./bld etg --nodoc
+#  - python ./build.py --build_dir=./bld dox
+#  - python ./build.py --build_dir=./bld touch
+#  - python ./build.py --build_dir=./bld etg --nodoc
 #  - sudo -E python ./build.py --build_dir=./bld sip
-  - python ./build.py --build_dir=./bld sip
-  - python ./build.py --build_dir=./bld build_wx
-  - python ./build.py --build_dir=./bld build_py
-  - python ./build.py --build_dir=./bld test --verbose
+#  - python ./build.py --build_dir=./bld sip
+#  - python ./build.py --build_dir=./bld build_wx
+#  - python ./build.py --build_dir=./bld build_py
+#  - python ./build.py --build_dir=./bld test --verbose
 
-#  - nosetests
+  - nosetests
 #  - python --version
 
 after_success:
@@ -214,7 +214,7 @@ addons:
       # For wxPython?
       - dpkg-dev
       - build-essential
-      - python3.4-dev
+#      - python3.4-dev
       - libwebkitgtk-dev
       - libjpeg-dev
       - libtiff-dev
