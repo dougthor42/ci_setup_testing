@@ -19,7 +19,10 @@ class Examples(unittest.TestCase):
         self.assertEqual(result, 5)
 
     def test_wx_version(self):
-        self.assertEqual(wx.ID_ABORT, 5115)
+        self.assertEqual(core.wx_Id_Abort(), 5115)
+
+    def test_wx_2(self):
+        self.assertEqual(core.func2(), 0)
 
 
 if __name__ == "__main__":
