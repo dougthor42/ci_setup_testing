@@ -94,7 +94,7 @@ before_install:
 #  - python ./build.py --build_dir=./bld test --verbose
 
   - echo "Installing wxPython from the wheel I made"
-  - pip install ./wxPython_Phoenix-3.0.3-cp34-cp34m-linux_x86_64.whl
+  - pip install ./wxPython-3.0.3-cp34-cp34m-linux_x86_64.whl
 
 install:
   - echo "----- install -----"
