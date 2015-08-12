@@ -106,9 +106,10 @@ install:
   # Start the install of everything
   - pip install --upgrade pip
 #  - pip install -r dev-requirements.txt
-#  - pip install coveralls
+  - pip install coveralls
 #  - pip install wheel
 #  - pip install numpy
+   - pip install green
 #  - pip install --upgrade --pre --trusted-host wxpython.org -vvv -f http://wxpython.org/Phoenix/snapshot-builds/ wxPython_Phoenix
 
 before_script:
@@ -116,10 +117,14 @@ before_script:
 
 script:
   - echo "----- script -----"
-#  - nosetests
+  - green ci_setup_testing -vv --run-coverage
 
 after_success:
   - echo "----- after_success -----"
+
+  # Send coverage information to coveralls.io
+  - coveralls
+
 #  - echo "----- Building a wxPython wheel -----"
 #  - cd Phoenix
 #  - ls
