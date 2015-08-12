@@ -1,6 +1,4 @@
-from __future__ import print_function, division
-from __future__ import absolute_import
-
+# -*- coding: utf-8 -*-
 
 def func(a, b):
     """ Example Function """
