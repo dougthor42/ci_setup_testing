@@ -1,7 +1,6 @@
 from __future__ import print_function, division
 #from __future__ import absolute_import
 import unittest
-import wx
 
 # NoseTest OK/Fail
 ### Absolute import Y/N                  N               Y
@@ -13,14 +12,16 @@ import ci_setup_check.core as core     # OK              OK
 #import core                            # fail           fail
 
 
-
 class Examples(unittest.TestCase):
     def test_things(self):
         result = core.func(2, 3)
         self.assertEqual(result, 5)
 
     def test_wx_version(self):
-        self.assertEqual(wx.ID_ABORT, 5115)
+        self.assertEqual(core.wx_Id_Abort(), 5115)
+
+    def test_wx_2(self):
+        self.assertEqual(core.func2(), 0)
 
 
 if __name__ == "__main__":
