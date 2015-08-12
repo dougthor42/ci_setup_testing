@@ -3,7 +3,6 @@
 #################################
 language: python
 
-#sudo: required
 sudo: false
 
 python:
@@ -15,88 +14,15 @@ notifications:
 #################################
 # Build Lifecycle
 #################################
-
 before_install:
   - echo "----- before_install -----"
 
   # print out some system info
   - uname -a
   - lscpu
-#  - free -ht       # doesn't like -h (human readable) :-(
-  - echo "Free Memory (megabytes)"
-  - free -mt
   - cat /proc/version
   - cat /etc/*release*
   - lsb_release -a
-
-  # Installing wxPython Phoenix from snapshot
-  # -------------------------------------------------------------------------
-  # Download the source tarball
-#  - wget http://wxpython.org/Phoenix/snapshot-builds/wxPython_Phoenix-3.0.3.dev1820+49a8884.tar.gz
-#  - ls
-
-  # extract it
-#  - tar -xzf wxPython_Phoenix-3.0.3.dev1820+49a8884.tar.gz
-#  - ls
-#  - ls wxPython_Phoenix-3.0.3.dev1820+49a8884
-
-  # Run the build script
-#  - ls ./wxPython_Phoenix-3.0.3.dev1820+49a8884/
-#  - cd ./wxPython_Phoenix-3.0.3.dev1820+49a8884
-#  - ls
-#  - ls ./sip
-
-  # seperate commands for:
-  #  1. travis doesn't halt if there's no output
-  #  2. easier debugging.
-  #  3. customize things like sudo
-#  - python ./build.py --build_dir=../bld dox touch etg --nodoc sip build     # split out
-#  - python ./build.py --build_dir=./bld dox
-#  - python ./build.py --build_dir=./bld touch
-#  - python ./build.py --build_dir=./bld etg --nodoc
-#  - python ./build.py --build_dir=./bld build      # split into _wx and _py
-#  - python ./build.py --build_dir=./bld build_wx
-
-  # ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-  # Up to this point confirmed OK.
-  # ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-
-#  - python ./build.py --build_dir=./bld build_py
-#  - python ./build.py --build_dir=./bld test --verbose
-#  - cd ..
-
-  # -------------------------------------------------------------------------
-
-  # Installing wxPython Phoenix from repo clone of 49a8884e7c
-  # -------------------------------------------------------------------------
-  - echo "Installing wxPython Phoenix from repo clone"
-  # Clone the repo (downloads entire history)
-#  - git clone --depth=50 --branch=master git://github.com/wxWidgets/Phoenix.git
-
-  # Change to the directory
-#  - cd Phoenix
-
-  # Have to get submodule wxWidgets. See README.rts:building-wxwidgets
-#  - git submodule init
-#  - git submodule update
-
-  # Switch to the correct commit:
-#  - echo "Using commit # 49a8884e7c"
-#  - git checkout 49a8884e7c
-
-  # Follow the same flow for building wxPython from source.
-#  - python ./build.py dox
-#  - python ./build.py build_wx --jobs=16
-#  - python ./build.py touch
-#  - python ./build.py etg --nodoc
-#  - python ./build.py sip
-#  - python ./build.py build_py --jobs=16
-#  - python ./build.py --build_dir=./bld test --verbose
-
-  - echo "Installing wxPython from the wheel I made"
-#  - pip install ./wxPython-3.0.3-cp34-cp34m-linux_x86_64.whl
-#  - pip install --pre --trusted-host dougthor42.github.io dougthor42.github.io/tools/wxPython-3.0.3-cp34-cp34m-linux_x86_64.whl
-  - pip install http://dougthor42.github.io/tools/wxPython-3.0.3-cp34-cp34m-linux_x86_64.whl
 
 install:
   - echo "----- install -----"
@@ -105,12 +31,10 @@ install:
 
   # Start the install of everything
   - pip install --upgrade pip
+  - pip install http://dougthor42.github.io/tools/wxPython-3.0.3-cp34-cp34m-linux_x86_64.whl
 #  - pip install -r dev-requirements.txt
   - pip install coveralls
-#  - pip install wheel
-#  - pip install numpy
   - pip install green
-#  - pip install --upgrade --pre --trusted-host wxpython.org -vvv -f http://wxpython.org/Phoenix/snapshot-builds/ wxPython_Phoenix
 
 before_script:
   - echo "----- before_script -----"
@@ -125,20 +49,8 @@ after_success:
   # Send coverage information to coveralls.io
   - coveralls
 
-#  - echo "----- Building a wxPython wheel -----"
-#  - cd Phoenix
-#  - ls
-#  - python setup.py bdist_wheel
-#  - ls
-#  - cd dist
-#  - ls
-
 after_failure:
   - echo "----- after_failure -----"
-#  - ls -lh /home/travis/build/dougthor42/ci_setup_testing/Phoenix/
-#  - ls -lh /home/travis/build/dougthor42/ci_setup_testing/Phoenix/bin
-#  - ls -lh /home/travis/build/dougthor42/ci_setup_testing/Phoenix/bin/sip-4.16.7-linux
-#  - file /home/travis/build/dougthor42/ci_setup_testing/Phoenix/bin/sip-4.16.7-linux
 
 #################################
 # Additional Items
