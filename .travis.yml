@@ -117,7 +117,7 @@ before_script:
 
 script:
   - echo "----- script -----"
-  - green ci_setup_testing -vv --run-coverage
+  - green ci_setup_check -vv --run-coverage
 
 after_success:
   - echo "----- after_success -----"
