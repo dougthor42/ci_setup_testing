@@ -109,7 +109,7 @@ install:
   - pip install coveralls
 #  - pip install wheel
 #  - pip install numpy
-   - pip install green
+  - pip install green
 #  - pip install --upgrade --pre --trusted-host wxpython.org -vvv -f http://wxpython.org/Phoenix/snapshot-builds/ wxPython_Phoenix
 
 before_script:
