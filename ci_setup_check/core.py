@@ -26,3 +26,7 @@ def func3(a):
 def func3(a):
     print(a )
     return (a)
+
+def func3(a, b):
+    print(a )
+    return (a)
