@@ -18,3 +18,7 @@ def func2():
 
 def wx_Id_Abort():
     return wx.ID_ABORT
+
+def func3(a):
+    print(a )
+    return (a)
