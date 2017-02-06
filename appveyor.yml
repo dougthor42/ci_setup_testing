@@ -13,9 +13,9 @@ environment:
     secure: RT0QcAOa/Ay2q4dGPHqHptp9qCevSV4R8z2FTWwWPQM=
 
   matrix:
-    - PYTHON: "C:\\Python27"
-      PYTHON_VERSION: "2.7.8"
-      PYTHON_ARCH: "32"
+#    - PYTHON: "C:\\Python27"
+#      PYTHON_VERSION: "2.7.8"
+#      PYTHON_ARCH: "32"
 
 #    - PYTHON: "C:\\Python27-x64"
 #      PYTHON_VERSION: "2.7.8"
@@ -33,13 +33,13 @@ environment:
 #     PYTHON_VERSION: "3.4.3"
 #     PYTHON_ARCH: "32"
 
-#    - PYTHON: "C:\\Python34-x64"
-#      PYTHON_VERSION: "3.4.3"
-#      PYTHON_ARCH: "64"
+    - PYTHON: "C:\\Python34-x64"
+      PYTHON_VERSION: "3.4.3"
+      PYTHON_ARCH: "64"
 
 install:
   # Check that we have the expected version and architecture for Python
-  - "%PYTHON%\\python.exe --version"
+  - "%PYTHON%\\python.exe -m pip install -upgrade pip wheel"
   - "%PYTHON%\\python.exe -m pip install -r dev-requirements.txt"
 
 build: off  # Not a C# project, build stuff at the test step instead.
