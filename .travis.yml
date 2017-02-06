@@ -32,8 +32,8 @@ deploy:
   provider: pypi
   user: dougthor42
   password:
-    secure: KOXA3T4PIsw5yg7HH1032S2v+mkK/nGznRseR7p9Wp+DxjS4YQ/aqYrXNE3HMT4Ak7t6k75tJAZXlhbwduEFXppucDB7Nsk/l9GOGQLGwqQKLdrX8a17WixehPvCHDGAZNMoZEH2+64mruYBIejD0aVX/h2X9v2RbqAHcbiBzIo=
+    secure: Dd5K6vbkCSXAKVuMsTbIYzCb7GCXq2lNhKLvHtFsXku0ryqyBnHpI6MN4VJNPj4U6kc2FX/AzLreM8VNQlbJ/WBF6d5YE/Br9XLMBtCNLSjo3qQWAS/ecaEvqaXaor7+c8txR/W1tbfyfz2+CDhTgL4+4VKB9w5Cr3jmWu0OfNc=
   server: https://testpypi.python.org/pypi
-  distributions: "sdist bdist_wheel"
+  distributions: "sdist"
 #  on:
 #    tags: true
