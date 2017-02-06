@@ -6,7 +6,6 @@ environment:
   global:
     CMD_IN_ENV: ""
 
-environment:
   PYPI_PASSWORD:
     secure: FJVZ1vvBPXz2Wll6xU3xuIin/Ox5lvRygOxHHWTDH0w=
 
