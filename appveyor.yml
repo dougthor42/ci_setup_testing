@@ -7,7 +7,7 @@ environment:
     CMD_IN_ENV: ""
 
   PYPI_PASSWORD:
-    secure: FJVZ1vvBPXz2Wll6xU3xuIin/Ox5lvRygOxHHWTDH0w=
+    secure: 8cUzxTdioPoDRaR96m4k5kxW5P9Y99rf6OBPQ4epQds=
 
   TEST_PYPI_PASSWORD:
     secure: NxpETIgblfjpmXFZaVPiKWxisJ8WyMusY5ckRGeICSs=
