@@ -35,5 +35,6 @@ deploy:
     secure: Dd5K6vbkCSXAKVuMsTbIYzCb7GCXq2lNhKLvHtFsXku0ryqyBnHpI6MN4VJNPj4U6kc2FX/AzLreM8VNQlbJ/WBF6d5YE/Br9XLMBtCNLSjo3qQWAS/ecaEvqaXaor7+c8txR/W1tbfyfz2+CDhTgL4+4VKB9w5Cr3jmWu0OfNc=
   server: https://testpypi.python.org/pypi
   distributions: "sdist"
+  skip_upload_docs: true
 #  on:
 #    tags: true
