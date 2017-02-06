@@ -64,7 +64,11 @@ artifacts:
 
 deploy_script:
   # Create the PyPI rc file.
-  - "echo [testpipy] > %USERPROFILE%\\.pypirc"
+  - "echo [distutils] > %USERPROFILE%\\.pypirc"
+  - "echo index-servers= >> %USERPROFILE%\\.pypirc"
+  #- "echo   pypi >> %USERPROFILE%\\.pypirc"
+  - "echo   testpypi >> %USERPROFILE%\\.pypirc"
+  - "echo [testpipy] >> %USERPROFILE%\\.pypirc"
   - "echo repository = https://testpypi.python.org/pypi >> %USERPROFILE%\\.pypirc"
   - "echo username: dougthor42 >> %USERPROFILE%\\.pypirc"
   - "echo password: %TEST_PYPI_PASSWORD% >> %USERPROFILE%\\.pypirc"
