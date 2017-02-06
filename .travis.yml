@@ -36,5 +36,5 @@ deploy:
   server: https://testpypi.python.org/pypi
   distributions: "sdist"
   skip_upload_docs: true
-#  on:
-#    tags: true
+  on:
+    tags: true
