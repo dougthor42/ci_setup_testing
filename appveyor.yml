@@ -56,21 +56,22 @@ artifacts:
   # Archive the generated wheel package in the ci.appveyor.com build report.
   - path: dist\*
 
-deploy:
-  - provider: Environment
-    name: pypi
-    on:
-      appveyor_repo_tag : true
-
-deploy_script:
+on_success:
   # Create the PyPI rc file.
-  - "echo [distutils] > %USERPROFILE%\\.pypirc"
-  - "echo index-servers= >> %USERPROFILE%\\.pypirc"
-  #- "echo   pypi >> %USERPROFILE%\\.pypirc"
-  - "echo   testpypi >> %USERPROFILE%\\.pypirc"
-  - "echo [testpypi] >> %USERPROFILE%\\.pypirc"
-  - "echo repository = https://testpypi.python.org/pypi >> %USERPROFILE%\\.pypirc"
-  - "echo username = dougthor42 >> %USERPROFILE%\\.pypirc"
-  - "echo password = %TEST_PYPI_PASSWORD% >> %USERPROFILE%\\.pypirc"
+  - echo [distutils]                                     > %USERPROFILE%\\.pypirc
+  - echo index-servers=                                 >> %USERPROFILE%\\.pypirc
+  - echo   pypi                                         >> %USERPROFILE%\\.pypirc
+  - echo   testpypi                                     >> %USERPROFILE%\\.pypirc
+  - echo [pypi]                                         >> %USERPROFILE%\\.pypirc
+  - echo repository = https://pypi.python.org/pypi      >> %USERPROFILE%\\.pypirc
+  - echo username = dougthor42                          >> %USERPROFILE%\\.pypirc
+  - echo password = %PYPI_PASSWORD%                     >> %USERPROFILE%\\.pypirc
+  - echo [testpypi]                                     >> %USERPROFILE%\\.pypirc
+  - echo repository = https://testpypi.python.org/pypi  >> %USERPROFILE%\\.pypirc
+  - echo username = dougthor42                          >> %USERPROFILE%\\.pypirc
+  - echo password = %TEST_PYPI_PASSWORD%                >> %USERPROFILE%\\.pypirc
 
-  - "%PYTHON%\\python.exe -m twine upload -r testpypi dist\\*.whl"
+  - "%PYTHON%\\python.exe setup.py bdist_wheel"
+
+  # Deploy only on tags.
+  - if "%APPVEYOR_REPO_TAG%"=="true" ( "%PYTHON%\\python.exe -m twine upload -r testpypi dist\\*.whl")
