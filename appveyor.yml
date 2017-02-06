@@ -59,7 +59,6 @@ artifacts:
 deploy:
   - provider: PyPI
     on:
-      branch: master
       appveyor_repo_tag : true
 
 deploy_script:
