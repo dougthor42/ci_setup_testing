@@ -56,11 +56,11 @@ artifacts:
   # Archive the generated wheel package in the ci.appveyor.com build report.
   - path: dist\*
 
-#deploy:
-#  - provider: PyPI
-#    on:
-#      branch: master
-#      appveyor_repo_tag : true
+deploy:
+  - provider: PyPI
+    on:
+      branch: master
+      appveyor_repo_tag : true
 
 deploy_script:
   # Create the PyPI rc file.
