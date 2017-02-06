@@ -57,7 +57,8 @@ artifacts:
   - path: dist\*
 
 deploy:
-  - provider: PyPI
+  - provider: Environment
+    name: pypi
     on:
       appveyor_repo_tag : true
 
