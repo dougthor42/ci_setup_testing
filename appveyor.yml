@@ -60,4 +60,4 @@ artifacts:
 #      appveyor_repo_tag : true
 
 deploy-script:
-  - "%PYTHON%\\python.exe -m twine upload -r https://testpypi.python.org/pypi -u dougthor42 -p %PYPI_PASSWORD% dist/*.whl
+  - "%PYTHON%\\python.exe -m twine upload -r https://testpypi.python.org/pypi -u dougthor42 -p %PYPI_PASSWORD% dist/*.whl"
