@@ -1,25 +1,14 @@
-# This file taken directly from DRMaclver's hypothesis package.
-# https://github.com/DRMacIver/hypothesis
-# I will edit accordingly once I get my project going
-#
-# Also taken from
-# https://github.com/ogrisel/python-appveyor-demo/blob/master/appveyor.yml
-
-#   - Minimal appveyor.yml file is an empty file. All sections are optional.
-#   - Indent each level of configuration with 2 spaces. Do not use tabs!
-#   - All section names are case-sensitive.
-#   - Section names should be unique on each level.
-
 ### ----------------------
 ### General Configuration
 ### ----------------------
 
 environment:
   global:
-    # SDK v7.0 MSVC Express 2008's SetEnv.cmd script will fail if the
-    # /E:ON and /V:ON options are not enabled in the batch script intepreter
-    # See: http://stackoverflow.com/a/13751649/163740
-    CMD_IN_ENV: "cmd /E:ON /V:ON /C .\\appveyor\\run_with_env.cmd"
+    CMD_IN_ENV: ""
+
+environment:
+  PYPI_PASSWORD:
+    secure: FJVZ1vvBPXz2Wll6xU3xuIin/Ox5lvRygOxHHWTDH0w=
 
   matrix:
     - PYTHON: "C:\\Python27"
@@ -47,48 +36,29 @@ environment:
 #      PYTHON_ARCH: "64"
 
 install:
-  - ECHO "Filesystem root:"
-  - ps: "ls \"C:/\""
-
-  - ECHO "Installed SDKs:"
-  - ps: "ls \"C:/Program Files/Microsoft SDKs/Windows\""
-
-  # Install Python (from the official .msi of http://python.org) and pip when
-  # not already installed.
-  - "powershell ./appveyor/install.ps1"
-
-  # Prepend newly installed Python to the PATH of this build (this cannot be
-  # done from inside the powershell script as it would require to restart
-  # the parent CMD process).
-  - "SET PATH=%PYTHON%;%PYTHON%\\Scripts;%PATH%"
-
   # Check that we have the expected version and architecture for Python
-  - "python --version"
-  - "python -c \"import struct; print(struct.calcsize('P') * 8)\""
+  - "%PYTHON%\\python.exe --version"
+  - "%PYTHON%\\python.exe -m pip install -r dev-requirements.txt"
 
-  # install dependencies
-#  - "%CMD_IN_ENV% pip install --upgrade --pre http://wxpython.org/Phoenix/snapshot-builds/wxPython_Phoenix-3.0.3.dev1820+49a8884-cp27-none-win32.whl"
-  - "%CMD_IN_ENV% pip install --upgrade --trusted-host wxpython.org --pre -vv http://wxpython.org/Phoenix/snapshot-builds/wxPython_Phoenix-3.0.3.dev1820+49a8884-cp27-none-win32.whl"
-  - "%CMD_IN_ENV% pip install -r dev-requirements.txt"
-#  - "%CMD_IN_ENV% pip install setuptools pip"
-#  - "%CMD_IN_ENV% pip install ."
-#  - "%CMD_IN_ENV% pip install ./hypothesis-extra/hypothesis-datetime/"
-#  - "%CMD_IN_ENV% pip install ./hypothesis-extra/hypothesis-pytest/"
-
-build: false  # Not a C# project, build stuff at the test step instead.
+build: off  # Not a C# project, build stuff at the test step instead.
 
 test_script:
   # Build the compiled extension and run the project tests
-  - "%CMD_IN_ENV% nosetests"
-#  - "%CMD_IN_ENV% python -m pytest hypothesis-extra/hypothesis-datetime/tests"
-#  - "%CMD_IN_ENV% python -m pytest hypothesis-extra/hypothesis-pytest/tests"
+  - "%PYTHON%\\python.exe nosetests"
 
 after_test:
   # if tests OK, create whl package
-  - "%CMD_IN_ENV% python setup.py bdist_wheel bdist_wininst"
-  - ps: "ls dist"
+  - "%PYTHON%\\python.exe setup.py bdist_wheel"
 
 artifacts:
   # Archive the generated wheel package in the ci.appveyor.com build report.
   - path: dist\*
 
+#deploy:
+#  - provider: PyPI
+#    on:
+#      branch: master
+#      appveyor_repo_tag : true
+
+deploy-script:
+  - "%PYTHON%\\python.exe -m twine upload -r https://testpypi.python.org/pypi -u dougthor42 -p %PYPI_PASSWORD% dist/*.whl

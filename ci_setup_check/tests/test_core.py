@@ -16,14 +16,3 @@ class Examples(unittest.TestCase):
     def test_things(self):
         result = core.func(2, 3)
         self.assertEqual(result, 5)
-
-    def test_wx_version(self):
-        self.assertEqual(core.wx_Id_Abort(), 5115)
-
-    def test_wx_2(self):
-        self.assertEqual(core.func2(), 0)
-
-
-if __name__ == "__main__":
-#    test_stuff()
-    unittest.main()
