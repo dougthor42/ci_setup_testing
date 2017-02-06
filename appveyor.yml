@@ -70,7 +70,7 @@ deploy_script:
   - "echo   testpypi >> %USERPROFILE%\\.pypirc"
   - "echo [testpypi] >> %USERPROFILE%\\.pypirc"
   - "echo repository = https://testpypi.python.org/pypi >> %USERPROFILE%\\.pypirc"
-  - "echo username: dougthor42 >> %USERPROFILE%\\.pypirc"
-  - "echo password: %TEST_PYPI_PASSWORD% >> %USERPROFILE%\\.pypirc"
+  - "echo username = dougthor42 >> %USERPROFILE%\\.pypirc"
+  - "echo password = %TEST_PYPI_PASSWORD% >> %USERPROFILE%\\.pypirc"
 
   - "%PYTHON%\\python.exe -m twine upload -r testpypi dist\\*.whl"
