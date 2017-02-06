@@ -43,7 +43,7 @@ build: off  # Not a C# project, build stuff at the test step instead.
 
 test_script:
   # Build the compiled extension and run the project tests
-  - "%PYTHON%\\python.exe nosetests"
+  - "%PYTHON%\\python.exe -m nose ci_setup_check"
 
 after_test:
   # if tests OK, create whl package
