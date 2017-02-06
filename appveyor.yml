@@ -73,4 +73,6 @@ deploy_script:
   - "echo username = dougthor42 >> %USERPROFILE%\\.pypirc"
   - "echo password = %TEST_PYPI_PASSWORD% >> %USERPROFILE%\\.pypirc"
 
+  - "type %USERPROFILE%\\.pypirc"
+
   - "%PYTHON%\\python.exe -m twine upload -r testpypi dist\\*.whl"
