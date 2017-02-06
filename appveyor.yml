@@ -10,7 +10,7 @@ environment:
     secure: FJVZ1vvBPXz2Wll6xU3xuIin/Ox5lvRygOxHHWTDH0w=
 
   TEST_PYPI_PASSWORD:
-    secure: RT0QcAOa/Ay2q4dGPHqHptp9qCevSV4R8z2FTWwWPQM=
+    secure: NxpETIgblfjpmXFZaVPiKWxisJ8WyMusY5ckRGeICSs=
 
   matrix:
 #    - PYTHON: "C:\\Python27"
