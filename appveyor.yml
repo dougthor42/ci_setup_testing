@@ -68,7 +68,7 @@ deploy_script:
   - "echo index-servers= >> %USERPROFILE%\\.pypirc"
   #- "echo   pypi >> %USERPROFILE%\\.pypirc"
   - "echo   testpypi >> %USERPROFILE%\\.pypirc"
-  - "echo [testpipy] >> %USERPROFILE%\\.pypirc"
+  - "echo [testpypi] >> %USERPROFILE%\\.pypirc"
   - "echo repository = https://testpypi.python.org/pypi >> %USERPROFILE%\\.pypirc"
   - "echo username: dougthor42 >> %USERPROFILE%\\.pypirc"
   - "echo password: %TEST_PYPI_PASSWORD% >> %USERPROFILE%\\.pypirc"
