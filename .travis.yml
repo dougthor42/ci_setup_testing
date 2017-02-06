@@ -31,7 +31,9 @@ after_success:
 deploy:
   provider: pypi
   user: dougthor42
+  password:
+    secure: KOXA3T4PIsw5yg7HH1032S2v+mkK/nGznRseR7p9Wp+DxjS4YQ/aqYrXNE3HMT4Ak7t6k75tJAZXlhbwduEFXppucDB7Nsk/l9GOGQLGwqQKLdrX8a17WixehPvCHDGAZNMoZEH2+64mruYBIejD0aVX/h2X9v2RbqAHcbiBzIo=
   server: https://testpypi.python.org/pypi
   distributions: "sdist bdist_wheel"
-  on:
-    tags: true
+#  on:
+#    tags: true
